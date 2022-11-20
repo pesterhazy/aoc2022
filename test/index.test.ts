@@ -1,5 +1,6 @@
 import { it, expect } from "bun:test";
+import * as day from "../src/index";
 
-it("one should be equal to one", () => {
-  expect(1).toBe(1);
+it("test", () => {
+  expect(day.inputFor(1)).toBe("XYZ");
 });

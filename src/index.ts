@@ -1,5 +1,8 @@
-function main(): void {
-  console.log("aoc2022");
-}
+import { readFileSync } from "fs";
 
-main();
+export function inputFor(day: number) {
+  return readFileSync(
+    "inputs/day" + String(day).padStart(2, "0") + ".txt",
+    "utf8"
+  ).replace(/\n$/, "");
+}
