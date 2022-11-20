@@ -1,0 +1,14 @@
+{
+  "name": "aoc2022",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "typecheck": "tsc --noEmit src/*.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "typescript": "^4.9.3"
+  }
+}
