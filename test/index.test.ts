@@ -1,11 +1,11 @@
 import { it } from "bun:test";
-import { expect } from "expect";
 import * as day from "../src/index";
+import { deepStrictEqual as eq } from "assert";
 
 it("Reads input", () => {
-  expect(day.inputFor(1)).toBe("a\nb\nc");
+  eq(day.inputFor(1), "a\nb\nc");
 });
 
 it("Splits lines", () => {
-  expect(day.asLines("a\nb\nc")).toEqual(["a", "b", "c"]);
+  eq(day.asLines("a\nb\nc"), ["a", "b", "c"]);
 });
