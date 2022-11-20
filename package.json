@@ -7,7 +7,7 @@
     "typecheck": "tsc --project . --noEmit",
     "test": "bun wiptest test/*.ts",
     "check": "bun run typecheck && bun run test",
-    "watch": "watchexec -w src -w test bun run check"
+    "watch": "watchexec -w src -w test tooling/beeptest/beeptest bun run check"
   },
   "author": "",
   "license": "ISC",

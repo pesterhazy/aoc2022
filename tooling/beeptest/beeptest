@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+play() {
+    afplay "${dir}/sounds/${1}.wav" &
+}
+
+dir="$(dirname "${BASH_SOURCE[0]}")"
+
+play start
+
+status=0
+time "$@" || status="$?"
+
+if [[ "$status" == "0" ]]; then
+    play success
+else
+    play fail
+fi
