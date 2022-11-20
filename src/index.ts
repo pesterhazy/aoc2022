@@ -1,4 +1,4 @@
-function main(): void {
+function main() {
   console.log("aoc2022");
 }
 

@@ -4,7 +4,10 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "typecheck": "tsc --noEmit src/*.ts"
+    "typecheck": "tsc --noEmit src/*.ts",
+    "test": "bun wiptest test/*.ts",
+    "check": "bun run typecheck && bun run test",
+    "watch": "watchexec -w src -w test bun run check"
   },
   "author": "",
   "license": "ISC",
