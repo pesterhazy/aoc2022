@@ -10,10 +10,12 @@ dir="$(dirname "${BASH_SOURCE[0]}")"
 play start
 
 status=0
-time "$@" || status="$?"
+"$@" || status="$?"
 
 if [[ "$status" == "0" ]]; then
     play success
+elif [[ "$status" == "2" ]]; then
+    play lint_error
 else
     play fail
 fi
