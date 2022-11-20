@@ -6,3 +6,7 @@ export function inputFor(day: number) {
     "utf8"
   ).replace(/\n$/, "");
 }
+
+export function asLines(s: string) {
+  return s.split("\n");
+}
