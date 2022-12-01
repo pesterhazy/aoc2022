@@ -16,16 +16,13 @@ export function groups(lines: string[]) {
   return r;
 }
 
-export function solve(groups: number[][]) {
+export function solve(groups: number[][], part = 1) {
   let sums = groups.map((g) => g.reduce((a, b) => a + b));
 
   sums.sort((a, b) => b - a);
-  return sums.at(0);
-}
-
-export function solve2(groups: number[][]) {
-  let sums = groups.map((g) => g.reduce((a, b) => a + b));
-
-  sums.sort((a, b) => b - a);
-  return sums.slice(0, 3).reduce((a, b) => a + b);
+  if (part === 1) {
+    return sums.at(0);
+  } else {
+    return sums.slice(0, 3).reduce((a, b) => a + b);
+  }
 }

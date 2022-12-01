@@ -37,10 +37,10 @@ it("", () => {
 
 it("", () => {
   let groups = day.groups(tools.asLines(ii));
-  eq(day.solve2(groups), 45000);
+  eq(day.solve(groups, 2), 45000);
 });
 
 it("", () => {
   let groups = day.groups(tools.asLines(tools.inputFor(1)));
-  eq(day.solve2(groups), 207456);
+  eq(day.solve(groups, 2), 207456);
 });
