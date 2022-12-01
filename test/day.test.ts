@@ -34,3 +34,13 @@ it("", () => {
   let groups = day.groups(tools.asLines(tools.inputFor(1)));
   eq(day.solve(groups), 69177);
 });
+
+it("", () => {
+  let groups = day.groups(tools.asLines(ii));
+  eq(day.solve2(groups), 45000);
+});
+
+it("", () => {
+  let groups = day.groups(tools.asLines(tools.inputFor(1)));
+  eq(day.solve2(groups), 999);
+});
