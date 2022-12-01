@@ -32,5 +32,5 @@ it("", () => {
 
 it("", () => {
   let groups = day.groups(tools.asLines(tools.inputFor(1)));
-  eq(day.solve(groups), 999);
+  eq(day.solve(groups), 69177);
 });

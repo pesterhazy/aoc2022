@@ -19,9 +19,6 @@ export function groups(lines: string[]) {
 export function solve(groups: number[][]) {
   let sums = groups.map((g) => g.reduce((a, b) => a + b));
 
-  let max = 0;
-  for (let sum of sums) {
-    max = Math.max(sum, max);
-  }
-  return max;
+  sums.sort((a, b) => a - b);
+  return sums.at(-1);
 }
