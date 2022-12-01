@@ -19,8 +19,8 @@ export function groups(lines: string[]) {
 export function solve(groups: number[][]) {
   let sums = groups.map((g) => g.reduce((a, b) => a + b));
 
-  sums.sort((a, b) => a - b);
-  return sums.at(-1);
+  sums.sort((a, b) => b - a);
+  return sums.at(0);
 }
 
 export function solve2(groups: number[][]) {
