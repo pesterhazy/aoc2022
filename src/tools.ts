@@ -8,5 +8,5 @@ export function inputFor(day: number) {
 }
 
 export function asLines(s: string) {
-  return s.replace(/\n$/, "").split("\n");
+  return s.replace(/\n$/, "").replace(/^\n/, "").split("\n");
 }
