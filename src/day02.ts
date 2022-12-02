@@ -27,41 +27,19 @@ const W2 = {
   "scissors,0": "scissors",
 };
 
-function winner(s1, s2): number {
-  let ky = s1 + "," + s2;
-  let r = W[ky];
-
-  if (r === undefined) throw "boom: " + ky;
-
-  return r;
-}
+const SCORE = new Map([
+  [-1, 0],
+  [0, 3],
+  [1, 6],
+]);
 
 function score(p, q): number {
-  let w = winner(M1[p], M2[q]);
-  let s = S[M2[q]];
-  if (s === undefined) throw "ouch: " + q;
-
-  if (w === -1) s += 0;
-  else if (w === 0) s += 3;
-  else s += 6;
-
-  return s;
+  return S[M2[q]] + SCORE.get(W[M1[p] + "," + M2[q]]);
 }
 
 function score2(p, q): number {
   let w = Q[q];
-  if (w === undefined) throw "AAA";
-
-  let rr = W2[M1[p] + "," + w];
-  if (rr === undefined) throw "BBB";
-
-  let s = S[rr];
-
-  if (w === -1) s += 0;
-  else if (w === 0) s += 3;
-  else s += 6;
-
-  return s;
+  return S[W2[M1[p] + "," + w]] + SCORE.get(w);
 }
 
 export function solve(lines: string[], part = 1) {
