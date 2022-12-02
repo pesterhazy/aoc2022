@@ -1,6 +1,6 @@
 import { it } from "bun:test";
 import { deepStrictEqual as eq } from "assert";
-import * as day from "../src/day";
+import * as day from "../src/day01";
 import * as tools from "../src/tools";
 
 let ii = `
