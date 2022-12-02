@@ -64,22 +64,16 @@ function score2(p, q): number {
   return s;
 }
 
-export function solve(lines: string[]) {
+export function solve(lines: string[], part = 1) {
   let total = 0;
   for (let line of lines) {
     let [p, q] = line.split(/ /);
 
-    total += score(p, q);
-  }
-  return total;
-}
-
-export function solve2(lines: string[]) {
-  let total = 0;
-  for (let line of lines) {
-    let [p, q] = line.split(/ /);
-
-    total += score2(p, q);
+    if (part === 1) {
+      total += score(p, q);
+    } else {
+      total += score2(p, q);
+    }
   }
   return total;
 }
