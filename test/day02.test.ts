@@ -15,5 +15,15 @@ it("", () => {
 
 it("", () => {
   let r = day.solve(tools.asLines(tools.inputFor(2)));
+  eq(r, 11906);
+});
+
+it("", () => {
+  let r = day.solve2(tools.asLines(ii));
+  eq(r, 12);
+});
+
+it("", () => {
+  let r = day.solve2(tools.asLines(tools.inputFor(2)));
   eq(r, 999);
 });
