@@ -6,5 +6,5 @@
 
   (sh "cp" "src/day.ts" (str "src/day" day ".ts"))
   (let [s (slurp "test/day.test.ts")
-        s (clojure.string/replace s #"\"../src/day" day)]
-    (spit "test/day" day ".test.ts" )))
+        s (clojure.string/replace s #"\"../src/day" (fn [o] (str o day)))]
+    (spit (str "test/day" day ".test.ts") s)))
