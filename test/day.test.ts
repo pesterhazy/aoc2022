@@ -3,9 +3,10 @@ import { deepStrictEqual as eq } from "assert";
 import * as tools from "../src/tools";
 import * as day from "../src/day";
 
-let ii = `
+let demo = `
 `;
+
 it("", () => {
-  let r = day.solve(ii);
+  let r = day.solve(demo);
   eq(r, undefined);
 });
