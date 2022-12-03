@@ -2,7 +2,7 @@ import * as tools from "../src/tools";
 import * as assert from "assert";
 import * as setutils from "ts-set-utils";
 
-function score(c) {
+function score(c: string) {
   if (c.match(/[a-z]/)) return c.charCodeAt(0) - "a".charCodeAt(0) + 1;
   else if (c.match(/[A-Z]/)) return c.charCodeAt(0) - "A".charCodeAt(0) + 27;
   else assert(false);
