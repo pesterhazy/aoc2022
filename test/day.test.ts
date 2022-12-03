@@ -28,5 +28,5 @@ it("", () => {
 
 it("", () => {
   let r = day.solve2(tools.inputFor(3));
-  eq(r, 999);
+  eq(r, 2479);
 });
