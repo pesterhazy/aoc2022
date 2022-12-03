@@ -1,5 +1,13 @@
 import * as tools from "../src/tools";
 import * as assert from "assert";
+import * as setutils from "ts-set-utils";
+
+function score(found) {
+  if (found.match(/[a-z]/)) return found.charCodeAt(0) - "a".charCodeAt(0) + 1;
+  else if (found.match(/[A-Z]/))
+    return found.charCodeAt(0) - "A".charCodeAt(0) + 27;
+  else assert(false);
+}
 
 export function solve(s: string) {
   let lines = tools.asLines(s);
@@ -13,13 +21,23 @@ export function solve(s: string) {
     for (let x of b) if (a.has(x)) found = x;
     assert(found !== undefined);
 
-    let n;
-    if (found.match(/[a-z]/)) n = found.charCodeAt(0) - "a".charCodeAt(0) + 1;
-    else if (found.match(/[A-Z]/))
-      n = found.charCodeAt(0) - "A".charCodeAt(0) + 27;
-    else assert(false);
+    total += score(found);
+  }
+  return total;
+}
 
-    total += n;
+export function solve2(s: string) {
+  let lines = tools.asLines(s);
+  let total = 0;
+
+  for (let i = 0; i < lines.length; i += 3) {
+    let r = lines
+      .slice(i, i + 3)
+      .map((line) => new Set(Array.from(line)))
+      .reduce((a: Set<string>, b: Set<string>) => setutils.intersection(a, b));
+
+    assert(r.size === 1);
+    total += score([...r][0]);
   }
   return total;
 }
