@@ -2,9 +2,13 @@
 
 (require '[clojure.java.shell :refer [sh]])
 
-(let [day (format "%02d" (Long/parseLong (first *command-line-args*)))]
-
-  (sh "cp" "src/day.ts" (str "src/day" day ".ts"))
-  (let [s (slurp "test/day.test.ts")
-        s (clojure.string/replace s #"\"../src/day" (fn [o] (str o day)))]
-    (spit (str "test/day" day ".test.ts") s)))
+(doseq [n (range 1 26)]
+  (let [day (format "%02d" n)]
+    (println (str "src/day" day ".ts"))
+    (if (babashka.fs/exists? (str "src/day" day ".ts"))
+      (println "skip")
+      (do
+        (sh "cp" "src/day.ts" (str "src/day" day ".ts"))
+        (let [s (slurp "test/day.test.ts")
+              s (clojure.string/replace s #"\"../src/day" (fn [o] (str o day)))]
+          (spit (str "test/day" day ".test.ts") s))))))
