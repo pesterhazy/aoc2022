@@ -4,9 +4,20 @@ import * as tools from "../src/tools";
 import * as day from "../src/day04";
 
 let demo = `
+2-4,6-8
+2-3,4-5
+5-7,7-9
+2-8,3-7
+6-6,4-6
+2-6,4-8
 `;
 
 it("", () => {
   let r = day.solve(demo);
-  eq(r, undefined);
+  eq(r, 2);
+});
+
+it("", () => {
+  let r = day.solve(tools.inputFor(4));
+  eq(r, 518);
 });
