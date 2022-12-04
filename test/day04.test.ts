@@ -21,3 +21,13 @@ it("", () => {
   let r = day.solve(tools.inputFor(4));
   eq(r, 518);
 });
+
+it("", () => {
+  let r = day.solve(demo, 2);
+  eq(r, 4);
+});
+
+it("", () => {
+  let r = day.solve(tools.inputFor(4), 2);
+  eq(r, 909);
+});
