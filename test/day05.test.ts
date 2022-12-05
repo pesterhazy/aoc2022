@@ -32,3 +32,8 @@ it("", () => {
   let r = day.solve(day.parse(demo));
   eq(r, "CMZ");
 });
+
+it("", () => {
+  let r = day.solve(day.parse(tools.inputFor(5)));
+  eq(r, "???");
+});
