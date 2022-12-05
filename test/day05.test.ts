@@ -45,5 +45,5 @@ it("", () => {
 
 it("", () => {
   let r = day.solve(day.parse(tools.inputFor(5)), 2);
-  eq(r, "RLFNRTNFB");
+  eq(r, "MHQTLJRLB");
 });
