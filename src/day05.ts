@@ -19,7 +19,11 @@ export function parse(s: string) {
       }
     }
   }
-  return slots;
+  let instructions = [];
+  for (let line of tools.asLines(b)) {
+    instructions.push(line.match(/\d+/g).map((s) => parseInt(s)));
+  }
+  return [slots, instructions];
 }
 
 export function solve(s: string) {}
