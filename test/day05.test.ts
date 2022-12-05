@@ -4,9 +4,18 @@ import * as tools from "../src/tools";
 import * as day from "../src/day05";
 
 let demo = `
+    [D]
+[N] [C]
+[Z] [M] [P]
+ 1   2   3
+
+move 1 from 2 to 1
+move 3 from 1 to 3
+move 2 from 2 to 1
+move 1 from 1 to 2
 `;
 
 it("", () => {
-  let r = day.solve(demo);
-  eq(r, undefined);
+  let r = day.parse(demo);
+  eq(r, [["N", "Z"], ["D", "C", "M"], ["P"]]);
 });
