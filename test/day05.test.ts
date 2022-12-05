@@ -35,5 +35,10 @@ it("", () => {
 
 it("", () => {
   let r = day.solve(day.parse(tools.inputFor(5)));
-  eq(r, "???");
+  eq(r, "RLFNRTNFB");
+});
+
+it("", () => {
+  let r = day.solve(day.parse(demo), 2);
+  eq(r, "MCD");
 });

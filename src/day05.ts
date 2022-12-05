@@ -26,11 +26,21 @@ export function parse(s: string): [any, any] {
   return [slots, instructions];
 }
 
-export function solve([slots_, instructions]) {
+export function solve([slots_, instructions], part = 1) {
   let slots = JSON.parse(JSON.stringify(slots_));
   for (let [n, frm, to] of instructions) {
-    for (let i = 0; i < n; i++) {
-      slots[to - 1].unshift(slots[frm - 1].shift());
+    if (part === 1) {
+      for (let i = 0; i < n; i++) {
+        slots[to - 1].unshift(slots[frm - 1].shift());
+      }
+    } else {
+      let tmp = [];
+      for (let i = 0; i < n; i++) {
+        tmp.unshift(slots[frm - 1].shift());
+      }
+      for (let i = 0; i < n; i++) {
+        slots[to - 1].unshift(tmp[i]);
+      }
     }
   }
   return slots.map((a) => a[0]).join("");
