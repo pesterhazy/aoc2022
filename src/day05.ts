@@ -10,7 +10,6 @@ export function parse(s: string): [any, any] {
 
   for (let i = lines.length - 1; i >= 0; i--) {
     let line = lines[i];
-    console.log(line);
     for (let j = 0; j < line.length; j++) {
       if (line[j].match(/[A-Z]/)) {
         let slot = (j - 1) / 4;

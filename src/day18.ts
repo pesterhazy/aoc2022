@@ -36,3 +36,49 @@ export function solve(s: string) {
   }
   return n;
 }
+
+const THRESHOLD = 5;
+
+function isTrapped(start: number[], world: Set<string>): boolean {
+  let todo = [start];
+  let seen: Set<string> = new Set();
+
+  while (todo.length > 0) {
+    let v = todo.pop();
+
+    if (seen.has(JSON.stringify(v))) continue;
+    seen.add(JSON.stringify(v));
+
+    for (let dim = 0; dim < 3; dim++)
+      if (Math.abs(start[dim] - v[dim]) >= THRESHOLD) return false;
+
+    for (let d of DELTAS) {
+      let vv = add(v, d);
+      if (!world.has(JSON.stringify(vv))) todo.push(vv);
+    }
+  }
+  return true;
+}
+
+export function solve2(s: string) {
+  let vs: number[][] = tools
+    .asLines(s)
+    .map((line) => line.split(/,/).map((ss) => parseInt(ss)));
+
+  let world: Set<string> = new Set();
+
+  for (let v of vs) {
+    world.add(JSON.stringify(v));
+  }
+
+  let n = 0;
+  for (let v of vs) {
+    for (let d of DELTAS) {
+      let vv = add(v, d);
+
+      if (isTrapped(vv, world)) continue;
+      if (!world.has(JSON.stringify(vv))) n++;
+    }
+  }
+  return n;
+}
