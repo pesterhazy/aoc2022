@@ -33,3 +33,8 @@ it("", () => {
   let r = day.solve2(demo);
   eq(r, 58);
 });
+
+it("", () => {
+  let r = day.solve2(tools.inputFor(18));
+  eq(r, 999);
+});

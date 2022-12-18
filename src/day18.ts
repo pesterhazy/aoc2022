@@ -37,7 +37,7 @@ export function solve(s: string) {
   return n;
 }
 
-const THRESHOLD = 5;
+const THRESHOLD = 6;
 
 function isTrapped(start: number[], world: Set<string>): boolean {
   let todo = [start];
@@ -76,8 +76,15 @@ export function solve2(s: string) {
     for (let d of DELTAS) {
       let vv = add(v, d);
 
-      if (isTrapped(vv, world)) continue;
-      if (!world.has(JSON.stringify(vv))) n++;
+      if (world.has(JSON.stringify(vv))) continue;
+
+      let cache = new Set();
+      if (cache.has(JSON.stringify(vv))) continue;
+      if (isTrapped(vv, world)) {
+        cache.add(JSON.stringify(vv));
+        continue;
+      }
+      n++;
     }
   }
   return n;
